@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Commands &mdash; giraffez 1.0.5 documentation</title>
+  <title>Commands &mdash; giraffez 1.1.0 documentation</title>
   
 
   
@@ -30,7 +30,7 @@
   
 
   
-    <link rel="top" title="giraffez 1.0.5 documentation" href="index.html"/>
+    <link rel="top" title="giraffez 1.1.0 documentation" href="index.html"/>
         <link rel="next" title="Quickstart" href="quickstart.html"/>
         <link rel="prev" title="Introduction" href="intro.html"/> 
 
@@ -60,7 +60,7 @@
             
             
               <div class="version">
-                1.0.5
+                1.1.0
               </div>
             
           
@@ -267,7 +267,7 @@ giraffez config --set connections.mydb1.password password123
 <div class="highlight-python"><div class="highlight"><pre><span></span>giraffez load source_file.txt database.table_name
 </pre></div>
 </div>
-<p>The <code class="docutils literal"><span class="pre">load</span></code> command necessitates that a header is present in the source file. The delimiter for the rows of the file is inferred from the content of the header, as well as the names and order of the table&#8217;s target columns.</p>
+<p>The <code class="docutils literal"><span class="pre">load</span></code> command necessitates that a header is present in the source file. The delimiter for the rows of the file is inferred from the content of the header, as well as the names and order of the table&#8217;s target columns.  By default, delimiters within &#8220;double quotes&#8221; are ignored; use <code class="docutils literal"><span class="pre">--quote-char</span></code> to change the default quote character.</p>
 </div>
 <div class="section" id="mload">
 <span id="mload-command"></span><h2>mload<a class="headerlink" href="#mload" title="Permalink to this headline">¶</a></h2>
@@ -277,7 +277,7 @@ giraffez config --set connections.mydb1.password password123
 <div class="highlight-python"><div class="highlight"><pre><span></span>giraffez mload source_file.txt database.table_name
 </pre></div>
 </div>
-<p>As with <code class="docutils literal"><span class="pre">load</span></code>, the <code class="docutils literal"><span class="pre">mload</span></code> command uses the data file&#8217;s header to determine the columns used in the destination table.</p>
+<p>As with <code class="docutils literal"><span class="pre">load</span></code>, the <code class="docutils literal"><span class="pre">mload</span></code> command uses the data file&#8217;s header to determine the columns used in the destination table.  By default, delimiters within &#8220;double quotes&#8221; are ignored; use <code class="docutils literal"><span class="pre">--quote-char</span></code> to change the default quote character.</p>
 <p>During the process of a load, you may be prompted to drop existing work tables for the target table. giraffez will handle the management of these auxiliary tables for you, but by default you will be prompted for a decision before they are dropped. To automatically answer &#8220;yes&#8221; for these questions (and drop the auxilliary tables should they already exist), specify the <code class="docutils literal"><span class="pre">-y</span></code> (or <code class="docutils literal"><span class="pre">--drop-all</span></code>) flag with the command:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span>giraffez load source_file.txt database.table_name -y
 </pre></div>
@@ -379,7 +379,7 @@ export http_proxy=&#39;http://$PROXY_USER:$PROXY_PASS@proxy.example.com/&#39;
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'1.0.5',
+            VERSION:'1.1.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true
