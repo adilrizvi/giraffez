@@ -78,7 +78,7 @@ static int Cmd_init(Cmd* self, PyObject* args, PyObject* kwds) {
     self->dbc->total_len = sizeof(dbcarea_t);
     DBCHINI(&self->result, cnta, self->dbc);
     if (self->result != EM_OK) {
-        PyErr_SetString(GiraffeError, "CLIv2: init failed");
+        PyErr_Format(GiraffeError, "CLIv2[init]: %s", self->dbc->msg_text);
         return -1;
     }
     self->dbc->change_opts = 'Y';
@@ -108,7 +108,7 @@ static int Cmd_init(Cmd* self, PyObject* args, PyObject* kwds) {
     self->dbc->func = DBFCON;
     DBCHCL(&self->result, cnta, self->dbc);
     if (self->result != EM_OK) {
-        PyErr_SetString(GiraffeError, "CLIv2: connect failed");
+        PyErr_Format(GiraffeError, "CLIv2[connect]: %s", self->dbc->msg_text);
         return -1;
     }
     self->dbc->i_sess_id = self->dbc->o_sess_id;
@@ -120,7 +120,7 @@ static int Cmd_init(Cmd* self, PyObject* args, PyObject* kwds) {
     self->dbc->func = DBFERQ;
     DBCHCL(&self->result, cnta, self->dbc);
     if (self->result != EM_OK) {
-        PyErr_SetString(GiraffeError, "CLIv2: end request failed");
+        PyErr_Format(GiraffeError, "CLIv2[end_request]: %s", self->dbc->msg_text);
         return -1;
     }
     if (self->status != 0) {

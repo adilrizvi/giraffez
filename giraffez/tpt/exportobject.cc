@@ -46,9 +46,9 @@ static PyObject* Export_new(PyTypeObject* type, PyObject* args, PyObject* kwds) 
     self->connection_status = 0;
     self->conn = new Connection();
     self->conn->AddAttribute(TD_SYSTEM_OPERATOR, TD_EXPORT);
-    self->conn->AddAttribute(TD_TDP_ID, host);
-    self->conn->AddAttribute(TD_USER_NAME, username);
-    self->conn->AddAttribute(TD_USER_PASSWORD, password);
+    self->conn->AddAttribute(TD_TDP_ID, strdup(host));
+    self->conn->AddAttribute(TD_USER_NAME, strdup(username));
+    self->conn->AddAttribute(TD_USER_PASSWORD, strdup(password));
     self->conn->AddAttribute(TD_MIN_SESSIONS, 5);
     self->conn->AddAttribute(TD_MAX_SESSIONS, 32);
     self->conn->AddAttribute(TD_MAX_DECIMAL_DIGITS, 38);
